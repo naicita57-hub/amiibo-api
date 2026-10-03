@@ -11,7 +11,7 @@ const btnFav = document.querySelector('#fav-btn');
 const getAllAmiibo = async (url) => {
     const data = await fetchData(url);
     const items = data.amiibo;
-    if(items){
+    if (items) {
         localStorage.setItem("amiibos", JSON.stringify(items));
     }
     return items;
@@ -21,10 +21,13 @@ const showAmiibo = async (url) => {
     isLoading(true);
     cardsDeJs.innerHTML = '';
 
+    document.querySelector('#error-message').classList.add('hidden');
+    document.querySelector('#no-results').classList.add('hidden');
+
     const amiibos = await getAllAmiibo(url);
 
-    if(!amiibos || amiibos.length === 0){
-        cardsDeJs.innerHTML = '<h4>No se encontraron Amiibos con ese nombre</h4>'
+    if (!amiibos || amiibos.length === 0) {
+        document.querySelector('#no-results').classList.remove('hidden');
         isLoading(false);
         return;
     }
@@ -32,18 +35,33 @@ const showAmiibo = async (url) => {
     const limitAmiibos = amiibos.slice(0, 50);
 
     limitAmiibos.forEach(amiibo => {
-        const cardElement = document.createElement('div');
-        cardElement.className = 'card col-12 col-md-3 col-lg-2 p-3 text-center shadow-sm';
-        
+        const cardElement = document.createElement('article');
+
+        cardElement.className = 'wii-card gap-2 bg-white border-2 border-gray-200 rounded-2xl p-4 transition flex flex-col justify-between';
+
         const amiiboId = `${amiibo.head}${amiibo.tail}`;
 
         cardElement.innerHTML = `
-            <h5 class="card-title text-truncate" title="${amiibo.name}">${amiibo.name}</h5>
-            <p class="text-muted small mb-2">${amiibo.amiiboSeries}</p> 
-            <div class="mb-3" style="height: 150px;">
-                <img class="img-fluid h-100 object-fit-contain" src="${amiibo.image}" alt="${amiibo.name}">
+            <div class="w-full h-44 flex items-center justify-center rounded-xl p-2 mb-3">
+                <img src="${amiibo.image}" alt="${amiibo.name}" class="h-full object-contain">
             </div>
-            <button onclick="detailAmiibo('${amiiboId}')" class="btn btn-primary btn-sm w-100" data-bs-target="#detailModal" data-bs-toggle="modal">Ver Detalles</button>
+            
+            <h3 class="font-bold text-lg text-gray-800 text-center mb-3 truncate" title="${amiibo.name}">
+                ${amiibo.name}
+            </h3>
+            
+            <div class="flex justify-between items-center text-xs text-gray-500 bg-gray-100 border-glow rounded-lg px-2.5 py-1.5 mb-4">
+                <span class="font-semibold text-gray-700 truncate max-w-[55%]" title="${amiibo.amiiboSeries}">
+                    ${amiibo.amiiboSeries}
+                </span>
+                <span class="font-mono text-blue-500">
+                     ${amiibo.release.na || 'N/A'}
+                </span>
+            </div>
+            
+            <button onclick="detailAmiibo('${amiiboId}')" class="wii-btn-blue text-white font-semibold text-sm py-2 px-4 rounded-xl w-full transition shadow-sm">
+                Ver más
+            </button>
         `;
 
         cardsDeJs.appendChild(cardElement);
@@ -52,16 +70,25 @@ const showAmiibo = async (url) => {
     isLoading(false);
 }
 
+const isLoading = (isActive) => {
+    if (isActive) {
+        carga.classList.remove('hidden');
+    } else {
+        carga.classList.add('hidden');
+    }
+};
+
+
 const detailAmiibo = (id) => {
     const amiibos = JSON.parse(localStorage.getItem("amiibos"));
-    
+
     amiibos.forEach((amiibo) => {
         const amiiboId = `${amiibo.head}${amiibo.tail}`;
-        
+
         if (amiiboId === id) {
-           document.querySelector('#modalTitle').innerHTML = amiibo.name;
-           
-           document.querySelector('#modalContent').innerHTML = `
+            document.querySelector('#modalTitle').innerHTML = amiibo.name;
+
+            document.querySelector('#modalContent').innerHTML = `
                 <img src="${amiibo.image}" alt="${amiibo.name}" class="img-fluid mb-3" style="max-height: 200px;">
                 <ul class="list-group list-group-flush text-start">
                     <li class="list-group-item"><strong>Personaje:</strong> ${amiibo.character}</li>
@@ -71,22 +98,14 @@ const detailAmiibo = (id) => {
                 </ul>
            `;
 
-           const btnFav = document.querySelector('#fav-btn');
-           btnFav.onclick = () => {
+            const btnFav = document.querySelector('#fav-btn');
+            btnFav.onclick = () => {
                 console.log("Amiibo añadido a favoritos:", amiibo);
                 alert(`¡${amiibo.name} añadido a favoritos!`);
-           };
+            };
         }
     });
-}
-
-const isLoading = (isActive) => {
-    if (isActive) {
-        carga.classList.remove('d-none');
-    } else {
-        carga.classList.add('d-none');
-    }
-}
+};
 
 const searchAmiibo = () => {
     const data = buscador.value.trim();
@@ -95,13 +114,19 @@ const searchAmiibo = () => {
     } else {
         showAmiibo(API_URL);
     }
-
-}
+};
 
 buscador.addEventListener("keypress", (e) => {
     if (e.key === "Enter") {
         searchAmiibo();
     }
+});
+
+const formularioBusqueda = document.querySelector('#search-form');
+
+formularioBusqueda.addEventListener("submit", (e) => {
+    e.preventDefault();
+    searchAmiibo();
 });
 
 showAmiibo(API_URL);
