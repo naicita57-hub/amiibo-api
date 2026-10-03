@@ -1,126 +1,150 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tymkiw Naiara & Portillo Andrea — DWM3AP - 2026</title>
 
+    <script src="https://cdn.tailwindcss.com"></script>
 
-  <title>Tymkiw Naiara & Portillo Andrea — DWM3AP - 2026</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
 
+  <body class="flex flex-col min-h-screen">
+    <header
+      class="bg-gradient-to-b from-white to-[#f1f5f8] border-b-[3px] border-[#d0d7de] shadow-sm py-4 px-6"
+    >
+      <div class="max-w-6xl mx-auto flex justify-between items-center">
+        <a
+          href="index.html"
+          class="flex items-center space-x-3 text-[#484848] font-bold text-xl no-underline"
+        >
+          <img
+            src="imagenes/logo.png"
+            alt="Logo"
+            id="site-logo"
+            class="h-9 w-auto"
+          />
+          <span> Arg Amiibo </span>
+        </a>
+        <nav>
+          <ul class="flex space-x-3 font-semibold">
+            <li>
+              <a
+                href="index.html"
+                class="wii-btn-blue rounded-full px-6 py-2 inline-block"
+                >Inicio</a
+              >
+            </li>
+            <li>
+              <a
+                href="favs.html"
+                class="bg-white border-2 border-[#d0d7de] text-[#484848] hover:border-[#00a0e9] hover:text-[#00a0e9] rounded-full px-6 py-2 transition inline-block"
+                >✰Favoritos✰</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
 
-  <script src="https://cdn.tailwindcss.com"></script>
+    <section>
+      <h1 class="text-3xl text-center font-extrabold mb-2">
+        Mayor variedad de Amiibo en Argentina
+      </h1>
 
+      <div
+        class="bg-white border-[3px] border-[#d0d7de] rounded-[25px] p-8 max-w-xl mx-auto my-8 text-center shadow-md"
+      >
+        <h2 class="text-3xl font-extrabold mb-2">Encontrá tu Amiibo</h2>
+        <p class="text-gray-500 mb-6">Estás buscando uno en específico?</p>
 
-  <link rel="stylesheet" href="css/styles.css">
-</head>
-
-<body class="flex flex-col min-h-screen">
-
-  <header class="bg-gradient-to-b from-white to-[#f1f5f8] border-b-[3px] border-[#d0d7de] shadow-sm py-4 px-6">
-    <div class="max-w-6xl mx-auto flex justify-between items-center">
-      <a href="index.html" class="flex items-center space-x-3 text-[#484848] font-bold text-xl no-underline">
-        <img src="imagenes/logo.png" alt="Logo" id="site-logo" class="h-9 w-auto">
-        <span> Arg Amiibo </span>
-      </a>
-      <nav>
-        <ul class="flex space-x-3 font-semibold">
-          <li>
-            <a href="index.html" class="wii-btn-blue rounded-full px-6 py-2 inline-block">Inicio</a>
-          </li>
-          <li>
-            <a href="favs.html"
-              class="bg-white border-2 border-[#d0d7de] text-[#484848] hover:border-[#00a0e9] hover:text-[#00a0e9] rounded-full px-6 py-2 transition inline-block">✰Favoritos✰</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-
-  <section>
-    <h1 class="text-3xl text-center font-extrabold  mb-2">Mayor variedad de Amiibo en Argentina</h1>
-
-    <div class="bg-white border-[3px] border-[#d0d7de] rounded-[25px] p-8 max-w-xl mx-auto my-8 text-center shadow-md">
-      <h2 class="text-3xl font-extrabold mb-2">Encontrá tu Amiibo</h2>
-      <p class="text-gray-500 mb-6">Estás buscando uno en específico?</p>
-
-      <form id="search-form" class="flex flex-col sm:flex-row gap-3 justify-center items-center">
-        <input type="search" id="search-input" placeholder="Buscálo!" aria-label="Buscar"
-          class="w-full sm:w-2/3 px-5 py-2.5 rounded-full border-2 border-[#d0d7de] focus:outline-none focus:border-[#00a0e9] transition">
-        <button type="submit" class="wii-btn-blue font-bold rounded-full px-6 py-2.5 w-full sm:w-auto">
-          Buscar
-        </button>
-      </form>
-    </div>
-  </section>
-
-
-  <main class="max-w-6xl mx-auto px-4 my-6 flex-grow w-full">
-
-    <div id="loader" class="hidden text-center my-8">
-      <p class="text-xl font-bold text-[#00a0e9] animate-pulse">Cargando tus productos...</p>
-    </div>
-
-    <div id="error-message"
-      class="hidden bg-white border-[3px] border-red-500 rounded-[20px] p-6 max-w-md mx-auto text-center shadow-md mb-6"
-      role="alert">
-      <h2 class="text-xl font-bold text-red-600 mb-2">Error de Red</h2>
-      <p id="error-text" class="text-gray-600 mb-4">No se pudo encontrar tu Amiibo... Revisá tu conección y probá de
-        nuevo</p>
-      <button id="retry-btn" class="wii-btn-blue font-bold rounded-full px-6 py-2">
-        Reintentar
-      </button>
-    </div>
-
-    <div id="no-results"
-      class="hidden bg-white border-[3px] border-amber-400 rounded-[20px] p-6 max-w-md mx-auto text-center shadow-md mb-6"
-      role="alert">
-      No se encontraron amiibos que coincidan con lo que buscaste.
-    </div>
-
-    <section id="cards-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <form
+          id="search-form"
+          class="flex flex-col sm:flex-row gap-3 justify-center items-center"
+        >
+          <input
+            type="search"
+            id="search-input"
+            placeholder="Buscálo!"
+            aria-label="Buscar"
+            class="w-full sm:w-2/3 px-5 py-2.5 rounded-full border-2 border-[#d0d7de] focus:outline-none focus:border-[#00a0e9] transition"
+          />
+          <button
+            type="submit"
+            class="wii-btn-blue font-bold rounded-full px-6 py-2.5 w-full sm:w-auto"
+          >
+            Buscar
+          </button>
+        </form>
+      </div>
     </section>
 
-  </main>
-
-
-  <div id="detailModal"
-    class="hidden fixed inset-0 bg-black/40 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-    <div class="wii-modal-card bg-white max-w-lg w-full p-6 shadow-2xl">
-      <div class="flex justify-between items-center border-b-2 border-[#d0d7de] pb-3">
-        <h3 id="detailModalLabel" class="text-xl font-bold">Detalle del Canal</h3>
-        <button id="closeModalBtn"
-          class="px-3 py-1 bg-white border-2 border-[#d0d7de] rounded-full hover:bg-gray-100 font-bold text-gray-500">&times;</button>
+    <main class="max-w-6xl mx-auto px-4 my-6 flex-grow w-full">
+      <div id="loader" class="hidden text-center my-8">
+        <p class="text-xl font-bold text-[#00a0e9] animate-pulse">
+          Cargando tus productos...
+        </p>
       </div>
 
-      <div id="detailModalBody" class="py-6">
-
-      </div>
-
-      <div class="flex justify-between items-center border-t-2 border-[#d0d7de] pt-4">
-        <button id="fav-btn"
-          class="bg-[#f1c40f] hover:bg-[#f39c12] text-white font-bold rounded-full px-5 py-2.5 shadow transition">
-          Guardar en Favoritos
-        </button>
-        <button id="closeModalBottomBtn"
-          class="bg-white border-2 border-[#d0d7de] font-bold rounded-full px-5 py-2.5 hover:bg-gray-100 transition">
-          Cerrar
+      <div
+        id="error-message"
+        class="hidden bg-white border-[3px] border-red-500 rounded-[20px] p-6 max-w-md mx-auto text-center shadow-md mb-6"
+        role="alert"
+      >
+        <h2 class="text-xl font-bold text-red-600 mb-2">Error de Red</h2>
+        <p id="error-text" class="text-gray-600 mb-4">
+          No se pudo encontrar tu Amiibo... Revisá tu conección y probá de nuevo
+        </p>
+        <button
+          id="retry-btn"
+          class="wii-btn-blue font-bold rounded-full px-6 py-2"
+        >
+          Reintentar
         </button>
       </div>
+
+      <div
+        id="no-results"
+        class="hidden bg-white border-[3px] border-amber-400 rounded-[20px] p-6 max-w-md mx-auto text-center shadow-md mb-6"
+        role="alert"
+      >
+        No se encontraron amiibos que coincidan con lo que buscaste.
+      </div>
+
+      <section
+        id="cards-container"
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+      ></section>
+    </main>
+
+    <div
+      id="detailModal"
+      class="hidden fixed inset-0 bg-black/40 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+    >
+      <div id="detailModalBody" class="py-6"></div>
     </div>
-  </div>
 
-  <footer class="bg-white border-t-[3px] border-[#d0d7de] py-6 text-center text-sm text-gray-500 mt-auto">
-    <p><strong class="text-[#484848]">Escuela Da Vinci</strong> — Diseño y Programación Web</p>
-    <p>Aplicaciones Web Progresivas | Examen Parcial 1 | Prof. Carlos Ferrer</p>
-    <p><strong class="text-[#484848]">Alumnos:</strong> Tymkiw Naiara y Portillo Andrea</p>
-    <p>Comisión: DWM3AP | Turno: Mañana | Año: 2026</p>
-  </footer>
+    <footer
+      class="bg-white border-t-[3px] border-[#d0d7de] py-6 text-center text-sm text-gray-500 mt-auto"
+    >
+      <p>
+        <strong class="text-[#484848]">Escuela Da Vinci</strong> — Diseño y
+        Programación Web
+      </p>
+      <p>
+        Aplicaciones Web Progresivas | Examen Parcial 1 | Prof. Carlos Ferrer
+      </p>
+      <p>
+        <strong class="text-[#484848]">Alumnos:</strong> Tymkiw Naiara y
+        Portillo Andrea
+      </p>
+      <p>Comisión: DWM3AP | Turno: Mañana | Año: 2026</p>
+    </footer>
 
-  <script src="js/api.js"></script>
-  <script src="js/favoritos.js"></script>
-  <script src="js/app.js"></script>
-</body>
-
+    <script src="js/api.js"></script>
+    <script src="js/favoritos.js"></script>
+    <script src="js/app.js"></script>
+  </body>
 </html>
