@@ -51,3 +51,40 @@ body {
     border-radius: 30px;
     animation: wiiPop 0.22s ease-out;
 }
+/* Barra inferior del Menú Wii */
+.wii-footer-bar {
+    background: linear-gradient(180deg, #ffffff 0%, #e6ebf0 100%);
+    border-top: 3px solid #00a0e9;
+    box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.06);
+}
+
+/* Botón/Marco circular estilo botón Wii para los Miis */
+.mii-circle-frame {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #ffffff 50%, #e1f3fd 100%);
+    border: 3px solid #00a0e9;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1), inset 0 2px 5px rgba(255, 255, 255, 0.9);
+    position: relative;
+    overflow: hidden; /* Corta la imagen en forma circular */
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; /* Alinea el Mii desde abajo */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.mii-circle-frame:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 15px rgba(0, 160, 233, 0.6);
+}
+
+
+.mii-img {
+    width: 100%;
+    object-fit: cover;
+    object-position: top center;
+}
+.sec-busq{
+    background-image: url(imagenes/eurogamer-wallpaper.webp);
+}
