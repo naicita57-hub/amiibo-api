@@ -1,86 +1,80 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-   
     <title>Tymkiw Naiara & Portillo Andrea — DWM3AP - 2026</title>
-    
-  
     <script src="https://cdn.tailwindcss.com"></script>
-    
-   
     <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body class="flex flex-col min-h-screen">
 
-<header class="bg-gradient-to-b from-white to-[#f1f5f8] border-b-2 border-[#d0d7de] shadow-sm py-4 px-6 sticky top-0 z-50">
-    <div class="max-w-6xl mx-auto flex justify-between items-center">
-        
-      
-        <a href="index.html" class="flex items-center space-x-3 text-[#484848] font-bold text-xl no-underline">
-            <img src="imagenes/logo.svg" alt="Logo" id="site-logo" class="h-9 w-auto">
-            <h1 class="text-xl font-bold">Arg Amiibo</h1>
-        </a>
+    <header
+        class="bg-gradient-to-b from-white to-[#f1f5f8] border-b-2 border-[#d0d7de] shadow-sm py-4 px-6 sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
 
-       
-        <nav class="hidden md:block">
-            <ul class="flex space-x-3 font-semibold items-center">
-                <li>
-                    <a href="index.html" class="wii-btn-blue rounded-full px-6 py-2 inline-block">Inicio</a>
-                </li>
-                <li>
-                    <a href="favs.html" class="bg-white border-2 border-[#d0d7de] text-[#484848] hover:border-[#00a0e9] hover:text-[#00a0e9] rounded-full px-6 py-2 transition inline-block">✰Favoritos✰</a>
-                </li>
-            </ul>
-        </nav>
+            <a href="index.html" class="flex items-center space-x-3 text-[#484848] font-bold text-xl no-underline">
+                <img src="imagenes/logo.svg" alt="Logo" id="site-logo" class="h-9 w-auto">
+                <h1 class="text-xl font-bold">Arg Amiibo</h1>
+            </a>
 
-      
-        <button id="mobile-menu-btn" 
-                aria-label="Abrir menú" 
+            <nav class="hidden md:block">
+                <ul class="flex space-x-3 font-semibold items-center">
+                    <li>
+                        <a href="index.html" class="wii-btn-blue rounded-full px-6 py-2 inline-block">Inicio</a>
+                    </li>
+                    <li>
+                        <a href="favs.html"
+                            class="bg-white border-2 border-[#d0d7de] text-[#484848] hover:border-[#00a0e9] hover:text-[#00a0e9] rounded-full px-6 py-2 transition inline-block">✰Favoritos✰</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <button id="mobile-menu-btn" aria-label="Abrir menú"
                 class="md:hidden p-2 rounded-2xl border-2 border-[#d0d7de] text-[#484848] hover:border-[#00a0e9] hover:text-[#00a0e9] active:scale-95 transition-all focus:outline-none">
-            
-          
-            <svg id="icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16M4 18h16"/>
-            </svg>
-            
-      
-            <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"/>
-            </svg>
-        </button>
 
-    </div>
+                <svg id="icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                        d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
 
-    
-    <div id="mobile-menu" class="hidden md:hidden bg-white/95 backdrop-blur-md border-t border-[#d0d7de] mt-3 pt-3 pb-2 px-4 space-y-3 shadow-md rounded-b-2xl">
-        <a href="index.html" class="block text-center wii-btn-blue rounded-full py-2.5 font-semibold">
-            Inicio
-        </a>
-        <a href="favs.html" class="block text-center bg-white border-2 border-[#d0d7de] text-[#484848] hover:border-[#00a0e9] hover:text-[#00a0e9] rounded-full py-2.5 font-semibold transition">
-            ✰Favoritos✰
-        </a>
-    </div>
-</header>
-    
- 
+                <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+
+        </div>
+
+        <div id="mobile-menu"
+            class="hidden md:hidden bg-white/95 backdrop-blur-md border-t border-[#d0d7de] mt-3 pt-3 pb-2 px-4 space-y-3 shadow-md rounded-b-2xl">
+            <a href="index.html" class="block text-center wii-btn-blue rounded-full py-2.5 font-semibold">
+                Inicio
+            </a>
+            <a href="favs.html"
+                class="block text-center bg-white border-2 border-[#d0d7de] text-[#484848] hover:border-[#00a0e9] hover:text-[#00a0e9] rounded-full py-2.5 font-semibold transition">
+                ✰Favoritos✰
+            </a>
+        </div>
+    </header>
+
     <section class="max-w-6xl mx-auto px-4 my-8 text-center">
-        <div class="inline-block bg-white/90 backdrop-blur-md border-2 border-[#d0d7de] rounded-3xl px-8 py-4 shadow-sm">
+        <div
+            class="inline-block bg-white/90 backdrop-blur-md border-2 border-[#d0d7de] rounded-3xl px-8 py-4 shadow-sm">
             <h1 class="text-2xl sm:text-3xl font-extrabold text-[#484848] flex items-center justify-center gap-3">
                 <span>⭐</span> Mis <span class="text-[#00a0e9]">Favoritos</span> <span>⭐</span>
             </h1>
         </div>
     </section>
 
-    
     <main class="max-w-6xl mx-auto px-4 min-h-[50vh] mb-12">
 
         <!-- SIN FAVS -->
-        <div id="no-favs" class=" flex-col items-center justify-center bg-white/90 backdrop-blur-md border-2 border-[#d0d7de] rounded-[25px] p-8 sm:p-12 text-center max-w-md mx-auto my-8 shadow-md space-y-5">
+        <div id="no-favs"
+            class=" flex-col items-center justify-center bg-white/90 backdrop-blur-md border-2 border-[#d0d7de] rounded-[25px] p-8 sm:p-12 text-center max-w-md mx-auto my-8 shadow-md space-y-5">
             <div class="mii-circle-frame cursor-pointer">
-                
+
                 <img src="imagenes/nai-mii.png" alt="Mii de Naiara Tymkiw" class="mii-img">
             </div>
             <p class="text-lg font-bold text-[#484848]">
@@ -89,88 +83,61 @@
             <p class="text-sm text-gray-500">
                 Explorá la colección principal y presiona la estrella para guardarlos acá.
             </p>
-            <a href="index.html" class="wii-btn-blue rounded-full px-8 py-3 font-bold inline-block hover:scale-105 active:scale-95 transition-all shadow-md">
+            <a href="index.html"
+                class="wii-btn-blue rounded-full px-8 py-3 font-bold inline-block hover:scale-105 active:scale-95 transition-all shadow-md">
                 Ir al Catálogo
             </a>
         </div>
 
-        
         <section id="fav-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            
         </section>
 
     </main>
 
     <div id="detailModal" class="hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-        <div class="bg-white border-[3px] border-[#d0d7de] rounded-[25px] max-w-lg w-full p-6 shadow-2xl relative animate-fade-in space-y-4">
-            
-            <div class="flex items-center justify-between border-b-2 border-[#d0d7de] pb-3">
-                <h3 id="detailModalLabel" class="text-xl font-bold text-[#484848]">
-                    Título del amiibo
-                </h3>
-                <button id="closeModalBtn" aria-label="Cerrar modal" class="w-9 h-9 flex items-center justify-center bg-gray-100 hover:bg-[#00a0e9] hover:text-white rounded-full text-gray-500 font-bold text-xl transition-all focus:outline-none">
-                    &times;
-                </button>
-            </div>
-
-           
-            <div id="detailModalBody" class="py-2 space-y-3 text-sm text-gray-600">
-                <!-- info del amiibo-->
-            </div>
-
-            >
-            <div class="flex justify-end pt-3 border-t border-gray-100">
-                <button id="closeModalBottomBtn" class="bg-white border-2 border-[#d0d7de] text-[#484848] font-bold rounded-full px-6 py-2 hover:border-[#00a0e9] hover:text-[#00a0e9] hover:scale-105 active:scale-95 transition-all">
-                    Cerrar
-                </button>
-            </div>
-
-        </div>
     </div>
- 
-   
-<footer class="wii-footer-bar text-[#484848] py-4 mt-auto relative">
-    <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
-        
-       
-        <div class="flex flex-col items-center group">
-            <div class="mii-circle-frame cursor-pointer">
-              
-                <img src="imagenes/andrea-mii.png" alt="Mii de Andrea Portillo" class="mii-img">
+
+    <footer class="wii-footer-bar text-[#484848] py-4 mt-auto relative">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+
+            <div class="flex flex-col items-center group">
+                <div class="mii-circle-frame cursor-pointer">
+
+                    <img src="imagenes/andrea-mii.png" alt="Mii de Andrea Portillo" class="mii-img">
+                </div>
+                <span class="text-xs font-bold mt-1 text-[#00a0e9] Z">
+                    Portillo Andrea
+                </span>
             </div>
-            <span class="text-xs font-bold mt-1 text-[#00a0e9] Z">
-               Portillo Andrea
-            </span>
-        </div>
 
-       
-        <div class="text-center space-y-1">
-            <p class="text-sm font-bold tracking-wide">
-                Escuela Da Vinci — <span class="text-[#00a0e9]">Diseño y Programación Web</span>
-            </p>
-            <p class="text-xs text-gray-600">
-                Aplicaciones Web Progresivas | Examen Parcial 1 | Prof. Carlos Ferrer
-            </p>
-            <p class="text-xs font-semibold text-gray-500">
-                Comisión: DWM3AP | Año: 2026
-            </p>
-        </div>
-
-        
-        <div class="flex flex-col items-center group">
-            <div class="mii-circle-frame cursor-pointer">
-                
-                <img src="imagenes/nai-mii.png" alt="Mii de Naiara Tymkiw" class="mii-img">
+            <div class="text-center space-y-1">
+                <p class="text-sm font-bold tracking-wide">
+                    Escuela Da Vinci — <span class="text-[#00a0e9]">Diseño y Programación Web</span>
+                </p>
+                <p class="text-xs text-gray-600">
+                    Aplicaciones Web Progresivas | Examen Parcial 1 | Prof. Carlos Ferrer
+                </p>
+                <p class="text-xs font-semibold text-gray-500">
+                    Comisión: DWM3AP | Año: 2026
+                </p>
             </div>
-            <span class="text-xs font-bold mt-1 text-[#00a0e9] ">
-                Tymkiw Naiara
-            </span>
+
+            <div class="flex flex-col items-center group">
+                <div class="mii-circle-frame cursor-pointer">
+
+                    <img src="imagenes/nai-mii.png" alt="Mii de Naiara Tymkiw" class="mii-img">
+                </div>
+                <span class="text-xs font-bold mt-1 text-[#00a0e9] ">
+                    Tymkiw Naiara
+                </span>
+            </div>
+
         </div>
+    </footer>
 
-    </div>
-</footer>
-
-    <script src="js/app.js"></script>
+    <script src="js/api.js"></script>
     <script src="js/favoritos.js"></script>
+    <script src="js/app.js"></script>
 </body>
+
 </html>

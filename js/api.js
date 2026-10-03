@@ -20,7 +20,7 @@ const fetchData = async (url) => {
         return await response.json();
     } catch (error) {
         console.error("Error de conexión:", error);
-        document.querySelector('#error-message').classList.remove('d-none');
+        document.querySelector('#error-message').classList.remove('hidden');
         return { amiibo: [] };
     }
 }
