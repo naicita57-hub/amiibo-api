@@ -1,5 +1,3 @@
-const API_URL = 'https://www.amiiboapi.org/api/amiibo/';
-
 const buscador = document.querySelector('#search-input');
 const carga = document.querySelector('#loader');
 const error = document.querySelector('#error-message');
@@ -9,21 +7,6 @@ const modalBody = document.querySelector('#detailModalBody');
 const btnModal = document.querySelector('#closeModalBtn');
 const modal = document.querySelector('#detailModal');
 const btnFav = document.querySelector('#fav-btn');
-
-const fetchData = async (url) => {
-    try {
-        const response = await fetch(`${url}`, {
-            method: 'GET',
-            headers: {
-                'Authorization': ''
-            }
-        });
-        const data = await response.json();
-        return data;
-    } catch (error) {
-        console.error("Error al agarrar los datos", error);
-    }
-}
 
 const getAllAmiibo = async (url) => {
     const data = await fetchData(url);
