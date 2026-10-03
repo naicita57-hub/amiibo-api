@@ -15,33 +15,104 @@
 </head>
 <body class="flex flex-col min-h-screen">
 
-    <header class="bg-gradient-to-b from-white to-[#f1f5f8] border-b-[3px] border-[#d0d7de] shadow-sm py-4 px-6">
-        <div class="max-w-6xl mx-auto flex justify-between items-center">
-            <a href="index.html" class="flex items-center space-x-3 text-[#484848] font-bold text-xl no-underline">
-                <img src="imagenes/logo.png" alt="Logo" id="site-logo" class="h-9 w-auto">
-                <span> Arg Amiibo </span>
-            </a>
-            <nav>
-                <ul class="flex space-x-3 font-semibold">
-                    <li>
-                        <a href="index.html" class="wii-btn-blue rounded-full px-6 py-2 inline-block">Inicio</a>
-                    </li>
-                    <li>
-                        <a href="favs.html" class="bg-white border-2 border-[#d0d7de] text-[#484848] hover:border-[#00a0e9] hover:text-[#00a0e9] rounded-full px-6 py-2 transition inline-block">✰Favoritos✰</a>
-                    </li>
-                </ul>
-            </nav>
+<header class="bg-gradient-to-b from-white to-[#f1f5f8] border-b-2 border-[#d0d7de] shadow-sm py-4 px-6 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto flex justify-between items-center">
+        
+        <!-- Logo y Nombre del Sitio -->
+        <a href="index.html" class="flex items-center space-x-3 text-[#484848] font-bold text-xl no-underline">
+            <img src="imagenes/logo.svg" alt="Logo" id="site-logo" class="h-9 w-auto">
+            <h1 class="text-xl font-bold">Arg Amiibo</h1>
+        </a>
+
+        <!-- Navegación -->
+        <nav class="hidden md:block">
+            <ul class="flex space-x-3 font-semibold items-center">
+                <li>
+                    <a href="index.html" class="text-[#484848] hover:border-[#00a0e9] hover:text-[#00a0e9] rounded-full px-6 py-2 transition inline-block">Inicio</a>
+                </li>
+                <li>
+                    <a href="favs.html" class=" text-[#484848] hover:border-[#00a0e9] hover:text-[#00a0e9] rounded-full px-6 py-2 transition inline-block">✰Favoritos✰</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Botón Hamburguesa -->
+        <button id="mobile-menu-btn" 
+                aria-label="Abrir menú" 
+                class="md:hidden p-2 rounded-2xl border-2 border-[#d0d7de] text-[#484848] hover:border-[#00a0e9] hover:text-[#00a0e9] active:scale-95 transition-all focus:outline-none">
+            
+            <!-- Iconos -->
+            <svg id="icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+            
+            <!-- Icono Cruz  -->
+            <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+        </button>
+
+    </div>
+
+    <!-- Menú Desplegable MOBILE  -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white/95 backdrop-blur-md border-t border-[#d0d7de] mt-3 pt-3 pb-2 px-4 space-y-3 shadow-md rounded-b-2xl">
+        <a href="index.html" class="block text-center wii-btn-blue rounded-full py-2.5 font-semibold">
+            Inicio
+        </a>
+        <a href="favs.html" class="block text-center bg-white border-2 border-[#d0d7de] text-[#484848] hover:border-[#00a0e9] hover:text-[#00a0e9] rounded-full py-2.5 font-semibold transition">
+            ✰Favoritos✰
+        </a>
+    </div>
+</header>
+<!-- Hero-->
+<section class="w-full bg-gradient-to-r from-[#e6ebf0] via-white to-[#e6ebf0]  border-[#d0d7de] py-8 md:py-12 px-4 md:px-8 shadow-sm overflow-hidden">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 md:gap-8">
+        
+        <div class="w-full md:w-1/3 flex justify-center md:justify-start">
+            <img src="imagenes/per-iz.png" 
+                 alt="Personajes Amiibo Izquierda" 
+                 class="h-auto max-h-48 md:max-h-80 w-auto md:w-full object-contain hover:scale-105 transition-transform duration-300">
         </div>
-    </header>
 
+        <div class="w-full md:w-1/3 text-center space-y-4 md:space-y-6">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#484848] tracking-wide leading-tight">
+                La mayor variedad de <span class="text-[#00a0e9]">Amiibo</span> en Argentina
+            </h2>
+            
+            <p class="text-sm md:text-base text-gray-500 font-medium max-w-md mx-auto">
+                Explorá el catálogo completo, buscá tus figuras favoritas y guardalas en tu colección.
+            </p>
 
-    <section>    
-        <h1 class="text-3xl text-center font-extrabold  mb-2">Mayor variedad de Amiibo en Argentina</h1>
+            <div class="flex flex-wrap justify-center gap-3 md:gap-4 pt-1">
+                <a href="#search-form" 
+                   class="bg-[#00a0e9] hover:bg-[#0082c3] text-white font-bold rounded-full px-7 py-3 shadow-[0_4px_10px_rgba(0,160,233,0.3)] hover:shadow-[0_0_15px_rgba(0,160,233,0.6)] hover:scale-105 active:scale-95 transition-all flex items-center gap-2 text-sm md:text-base">
+                    Buscar
+                </a>
+                <a href="#items-container" 
+                   class="bg-white border-2 border-[#d0d7de] text-[#484848] font-bold rounded-full px-7 py-3 hover:border-[#00a0e9] hover:text-[#00a0e9] hover:shadow-[0_0_15px_rgba(0,160,233,0.4)] hover:scale-105 active:scale-95 transition-all flex items-center gap-2 text-sm md:text-base">
+                     Explorar
+                </a>
+            </div>
+        </div>
+
+        <div class="hidden md:flex md:w-1/3 justify-end">
+            <img src="imagenes/per-der.png" 
+                 alt="Personajes Amiibo Derecha" 
+                 class="h-auto max-h-80 w-full object-contain hover:scale-105 transition-transform duration-300">
+        </div>
+
+    </div>
+</section>
        
-        <div class="bg-white border-[3px] border-[#d0d7de] rounded-[25px] p-8 max-w-xl mx-auto my-8 text-center shadow-md">
+    <section id="search-section" 
+         class="w-full bg-[url('imagenes/eurogamer-wallpaper.webp')]  bg-center border-y-[3px] border-[#d0d7de]  py-10 px-4 shadow-sm">
+    
+ 
+    <div class="max-w-3xl mx-auto bg-white/85 backdrop-blur-md border-2 border-[#d0d7de] rounded-3xl p-6 shadow-md text-center">  
+         <div class="">
         <h2 class="text-3xl font-extrabold mb-2">Encontrá tu Amiibo</h2>
         <p class="text-gray-500 mb-6">Estás buscando uno en específico?</p>
-        
+      
         <form id="search-form" class="flex flex-col sm:flex-row gap-3 justify-center items-center">
             <input type="search" id="search-input" placeholder="Buscálo!" aria-label="Buscar"
                    class="w-full sm:w-2/3 px-5 py-2.5 rounded-full border-2 border-[#d0d7de] focus:outline-none focus:border-[#00a0e9] transition">
@@ -50,7 +121,8 @@
             </button>
         </form> 
     </div>
-    </section>
+
+</section>
 
    
     <main class="max-w-6xl mx-auto px-4 my-6 flex-grow w-full">
@@ -63,6 +135,7 @@
    
         <div id="error-message" class="hidden bg-white border-[3px] border-red-500 rounded-[20px] p-6 max-w-md mx-auto text-center shadow-md mb-6" role="alert">
             <h2 class="text-xl font-bold text-red-600 mb-2">Error de Red</h2>
+            <img src="imagenes/gifwarning.webp" alt="">
             <p id="error-text" class="text-gray-600 mb-4">No se pudo encontrar tu Amiibo... Revisá tu conección y probá de nuevo</p>
             <button id="retry-btn" class="wii-btn-blue font-bold rounded-full px-6 py-2">
                 Reintentar
@@ -123,9 +196,39 @@
             </div>
             
             <div class="flex justify-between items-center border-t-2 border-[#d0d7de] pt-4">
-                <button id="fav-btn" class="bg-[#f1c40f] hover:bg-[#f39c12] text-white font-bold rounded-full px-5 py-2.5 shadow transition">
-                    Guardar en Favoritos
-                </button>
+              <button id="fav-btn" class="flex items-center gap-3 bg-white border-2 border-[#d0d7de] hover:border-[#34BEED] rounded-full px-5 py-2 hover:shadow-[0_0_15px_rgba(52,190,237,0.5)] hover:scale-105 active:scale-95 transition-all">
+    <div class="w-8 h-8 flex items-center justify-center">
+       
+        <svg class="w-full h-full" viewBox="0 0 187 187" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g filter="url(#filter0_modal)">
+                <circle cx="85" cy="85" r="81" fill="#D9D9D9"/>
+                <circle cx="85" cy="85" r="83" stroke="#34BEED" stroke-width="4"/>
+            </g>
+            <path d="M115.15 63.2531C130.738 48.6458 132.095 22.9189 112.046 15.5428C104.058 12.604 95.4282 11 86.4251 11C45.3212 11 12 44.4348 12 85.6786C12 92.8513 13.0078 99.7878 14.889 106.353C20.8004 126.984 46.6859 127.41 62.3459 112.735L115.15 63.2531Z" fill="#E4E4E4"/>
+            <path d="M81.6754 34.4875C82.8305 30.716 88.1695 30.716 89.3246 34.4875L97.5432 61.3214C98.058 63.0022 99.6099 64.15 101.368 64.15H128.444C132.261 64.15 133.909 68.9876 130.886 71.3181L108.582 88.5091C107.262 89.5264 106.711 91.2553 107.199 92.8486L115.621 120.347C116.763 124.074 112.442 127.066 109.355 124.686L87.9419 108.182C86.5029 107.073 84.4971 107.073 83.0581 108.182L61.6452 124.686C58.5577 127.066 54.2371 124.074 55.3786 120.347L63.8007 92.8486C64.2887 91.2553 63.7378 89.5264 62.418 88.5091L40.1143 71.3181C37.0907 68.9876 38.7387 64.15 42.5562 64.15H69.6322C71.3901 64.15 72.942 63.0022 73.4568 61.3214L81.6754 34.4875Z" fill="#A2A2A2"/>
+            <defs>
+                <filter id="filter0_modal" x="-6" y="-6" width="193" height="193" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                    <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                    <feMorphology radius="3" operator="erode" in="SourceAlpha" result="effect1_dropShadow_modal"/>
+                    <feOffset dx="18" dy="18"/>
+                    <feGaussianBlur stdDeviation="1"/>
+                    <feComposite in2="hardAlpha" operator="out"/>
+                    <feColorMatrix type="matrix" values="0 0 0 0 0.737255 0 0 0 0 0.741176 0 0 0 0 0.764706 0 0 0 1 0"/>
+                    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_modal"/>
+                    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_modal" result="shape"/>
+                    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                    <feOffset dx="-6" dy="-6"/>
+                    <feGaussianBlur stdDeviation="7"/>
+                    <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+                    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.26 0"/>
+                    <feBlend mode="normal" in2="shape" result="effect2_innerShadow_modal"/>
+                </filter>
+            </defs>
+        </svg>
+    </div>
+    <span class="font-bold text-[#484848]">Agregar a Favoritos</span>
+</button>
                 <button id="closeModalBottomBtn" class="bg-white border-2 border-[#d0d7de] font-bold rounded-full px-5 py-2.5 hover:bg-gray-100 transition">
                     Cerrar
                 </button>
@@ -134,13 +237,49 @@
     </div>
 
 
-    <footer class="bg-white border-t-[3px] border-[#d0d7de] py-6 text-center text-sm text-gray-500 mt-auto">
-        <p><strong class="text-[#484848]">Escuela Da Vinci</strong> — Diseño y Programación Web</p>
-        <p>Aplicaciones Web Progresivas | Examen Parcial 1 | Prof. Carlos Ferrer</p>
-        <p><strong class="text-[#484848]">Alumnos:</strong> Tymkiw Naiara y Portillo Andrea</p>
-        <p>Comisión: DWM3AP | Turno: Mañana | Año: 2026</p>
-    </footer>
+<footer class="wii-footer-bar text-[#484848] py-4 mt-auto relative">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+        
+       
+        <div class="flex flex-col items-center group">
+            <div class="mii-circle-frame cursor-pointer">
+              
+                <img src="imagenes/andrea-mii.png" alt="Mii de Andrea Portillo" class="mii-img">
+            </div>
+            <span class="text-xs font-bold mt-1 text-[#00a0e9] Z">
+               Portillo Andrea
+            </span>
+        </div>
 
-    <script src="js/app.js"></script>
+       
+        <div class="text-center space-y-1">
+            <p class="text-sm font-bold tracking-wide">
+                Escuela Da Vinci — <span class="text-[#00a0e9]">Diseño y Programación Web</span>
+            </p>
+            <p class="text-xs text-gray-600">
+                Aplicaciones Web Progresivas | Examen Parcial 1 | Prof. Carlos Ferrer
+            </p>
+            <p class="text-xs font-semibold text-gray-500">
+                Comisión: DWM3AP | Año: 2026
+            </p>
+        </div>
+
+        
+        <div class="flex flex-col items-center group">
+            <div class="mii-circle-frame cursor-pointer">
+                
+                <img src="imagenes/nai-mii.png" alt="Mii de Naiara Tymkiw" class="mii-img">
+            </div>
+            <span class="text-xs font-bold mt-1 text-[#00a0e9] ">
+                Tymkiw Naiara
+            </span>
+        </div>
+
+    </div>
+</footer>
+ 
+    <script src="js/app.js">
+
+    </script>
 </body>
 </html>
