@@ -104,11 +104,9 @@ body {
 }
 
 .toast-wii {
-   
     opacity: 0;
     transform: translateY(-10px);
     transition: opacity 0.3s ease, transform 0.3s ease;
-    
     background-color: #bffbc7;
     border: 2px solid #00d346;
     color: #1f8700;
@@ -120,8 +118,8 @@ body {
     max-width: 260px;
     margin: 0 auto;
     box-shadow: 0 4px 10px rgba(0, 160, 233, 0.15);
+    z-index: 999;
 }
-
 
 .toast-wii.show {
     display: flex;

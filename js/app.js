@@ -213,11 +213,11 @@ const mostrarToast = (mensaje) => {
 
     const toastSpan = toast.querySelector('span');
     toastSpan.textContent = mensaje;
-    toast.classList.remove('hidden');
+    toast.classList.add('show');
 
     setTimeout(() => {
-        toast.classList.add('hidden');
-    }, 5000);
+        toast.classList.remove('show');
+    }, 3000);
 };
 
 const searchAmiibo = () => {
