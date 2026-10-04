@@ -214,7 +214,7 @@ const mostrarToast = (mensaje) => {
 
     setTimeout(() => {
         toast.classList.add('hidden');
-    }, 3000);
+    }, 5000);
 };
 
 const searchAmiibo = () => {
