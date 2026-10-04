@@ -1,6 +1,3 @@
-const contenedorFavoritos = document.querySelector('#fav-container');
-const mensajeVacio = document.querySelector('#no-favs');
-
 const getFavoritos = () => {
     return JSON.parse(localStorage.getItem('amiibosFavoritos')) || [];
 }
@@ -14,8 +11,11 @@ const agregarFavorito = (amiibo) => {
     if (!existe) {
         favoritos.push(amiibo);
         localStorage.setItem('amiibosFavoritos', JSON.stringify(favoritos));
+        return `¡${amiibo.name} añadido a favoritos!`;
+    }else {
+        return "Este Amiibo ya está en tus favoritos.";
     };
-};
+};  
 
 const eliminarFavorito = (id) => {
     let favoritos = getFavoritos();
@@ -24,6 +24,13 @@ const eliminarFavorito = (id) => {
 }
 
 const renderizarFavoritos = () => {
+    const contenedorFavoritos = document.querySelector('#fav-container');
+    const mensajeVacio = document.querySelector('#no-favs');
+
+    if (!contenedorFavoritos || !mensajeVacio) {
+        return;
+    }
+
     const favoritos = getFavoritos();
     
     contenedorFavoritos.textContent = '';

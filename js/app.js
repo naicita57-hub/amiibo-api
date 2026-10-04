@@ -188,7 +188,9 @@ const detailAmiibo = (id) => {
     const btnCloseBottom = document.querySelector('#closeModalBottomBtn');
 
     btnFav.onclick = () => {
-        agregarFavorito(amiibo);
+        const mensajeDeRespuesta = agregarFavorito(amiibo);
+
+        mostrarToast(mensajeDeRespuesta);
     };
 
     const cerrarModal = () => {
@@ -200,6 +202,20 @@ const detailAmiibo = (id) => {
 
     modal.classList.remove('hidden');
 }
+
+const mostrarToast = (mensaje) => {
+    const toast = document.querySelector('#fav-toast');
+    
+    if (!toast) return; 
+
+    const toastSpan = toast.querySelector('span');
+    toastSpan.textContent = mensaje;
+    toast.classList.remove('hidden');
+
+    setTimeout(() => {
+        toast.classList.add('hidden');
+    }, 3000);
+};
 
 const searchAmiibo = () => {
     const data = buscador.value.trim();
