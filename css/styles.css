@@ -9,7 +9,7 @@ html {
 :root {
     --wii-blue: #00a0e9;
     --wii-blue-hover: #0082c3;
-    --wii-bg: #e6ebf0;
+    --wii-bg: #f3f5f7;
     --wii-border: #d0d7de;
     --wii-text: #484848;
     --wii-glow: 0 0 15px rgba(0, 160, 233, 0.6);
@@ -65,14 +65,14 @@ body {
     border-radius: 30px;
     animation: wiiPop 0.22s ease-out;
 }
-/* Barra inferior del Menú Wii */
+
 .wii-footer-bar {
     background: linear-gradient(180deg, #ffffff 0%, #e6ebf0 100%);
     border-top: 3px solid #00a0e9;
     box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.06);
 }
 
-/* Botón/Marco circular estilo botón Wii para los Miis */
+
 .mii-circle-frame {
     width: 80px;
     height: 80px;
