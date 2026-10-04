@@ -206,8 +206,8 @@ const detailAmiibo = (id) => {
     btnCloseTop.onclick = cerrarModal;
     btnCloseBottom.onclick = cerrarModal;
 
-    modal.onclick = (event) => {
-        if (event.target === modal) {
+    modal.onclick = (e) => {
+        if (e.target === modal) {
             cerrarModal();
         }
     }
