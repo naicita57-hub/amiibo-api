@@ -121,9 +121,12 @@ const detailAmiibo = (id) => {
             <div class="flex justify-between items-center border-b-2 border-[#d0d7de] pb-3">
                 <h3 id="detailModalLabel" class="text-xl font-bold">${amiibo.name}</h3>
                 <button id="closeModalBtn" class="px-3 py-1 bg-white border-2 border-[#d0d7de] rounded-full hover:bg-gray-100 font-bold text-gray-500">&times;</button>
+                
             </div>
             
             <div id="detailModalBody" class="py-6">
+
+            
                 <div class="flex flex-col items-center text-center">
                     <img src="${amiibo.image}" alt="${amiibo.name}" class="h-48 object-contain mb-6">
                     <ul class="w-full text-left bg-gray-50 rounded-lg p-4 border-2 border-[#d0d7de]">
@@ -144,7 +147,7 @@ const detailAmiibo = (id) => {
             </div>
             
             <div class="flex justify-between items-center border-t-2 border-[#d0d7de] pt-4">
-                <button id="fav-btn" class="flex items-center gap-3 bg-white border-2 border-[#d0d7de] hover:border-[#34BEED] rounded-full px-5 py-2 hover:shadow-[0_0_15px_rgba(52,190,237,0.5)] hover:scale-105 active:scale-95 transition-all">
+                <button id="fav-btn" class=" btn-fav flex items-center gap-3 bg-white border-2 border-[#d0d7de] hover:border-[#34BEED] rounded-full px-5 py-2 hover:shadow-[0_0_15px_rgba(52,190,237,0.5)] hover:scale-105 active:scale-95 transition-all">
                     <div class="w-8 h-8 flex items-center justify-center">
                         <svg class="w-full h-full" viewBox="0 0 187 187" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g filter="url(#filter0_modal)">
@@ -176,7 +179,7 @@ const detailAmiibo = (id) => {
                     </div>
                     <span class="font-bold text-[#484848]">Agregar a Favoritos</span>
                 </button>
-                <button id="closeModalBottomBtn" class="bg-white border-2 border-[#d0d7de] font-bold rounded-full px-5 py-2.5 hover:bg-gray-100 transition">
+                <button id="closeModalBottomBtn" class=" card-close-btn bg-white border-2 border-[#d0d7de] font-bold rounded-full px-5 py-2.5 hover:bg-gray-100 transition">
                     Cerrar
                 </button>
             </div>
