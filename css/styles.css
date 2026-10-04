@@ -118,6 +118,7 @@ body {
     margin: 0 auto;
     box-shadow: 0 4px 10px rgba(0, 160, 233, 0.15);
     z-index: 999;
+    margin-bottom: 2%;
 }
 
 .toast-wii.show {
