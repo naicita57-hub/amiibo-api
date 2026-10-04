@@ -116,18 +116,21 @@ const detailAmiibo = (id) => {
     const modal = document.querySelector('#detailModal');
 
     modal.innerHTML = `
-        <div class="wii-modal-card bg-white max-w-lg w-full p-6 shadow-2xl">
+        <div class="wii-modal-card bg-white max-w-lg w-full p-6 shadow-2xl max-h-[90vh] flex flex-col ">
             
-            <div class="flex justify-between items-center border-b-2 border-[#d0d7de] pb-3">
+            <div class="flex items-center justify-between border-b-2 border-[#d0d7de] pb-3 flex-shrink-0">
                 <h3 id="detailModalLabel" class="text-xl font-bold">${amiibo.name}</h3>
                 <button id="closeModalBtn" class="px-3 py-1 bg-white border-2 border-[#d0d7de] rounded-full hover:bg-gray-100 font-bold text-gray-500">&times;</button>
                 
             </div>
             
-            <div id="detailModalBody" class="py-6">
+            <div id="detailModalBody" class="py-6 py-2 space-y-3 text-sm text-gray-600 overflow-y-auto flex-1 pr-1">
 
             
                 <div class="flex flex-col items-center text-center">
+                 <div id="fav-toast" class="toast-wii">
+                <span></span>
+                </div>
                     <img src="${amiibo.image}" alt="${amiibo.name}" class="h-48 object-contain mb-6">
                     <ul class="w-full text-left bg-gray-50 rounded-lg p-4 border-2 border-[#d0d7de]">
                         <li class="py-2 border-b border-gray-200 last:border-0 text-gray-700">
