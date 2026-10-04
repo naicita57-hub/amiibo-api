@@ -1,6 +1,11 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap');
 
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px; 
+}
+
 :root {
     --wii-blue: #00a0e9;
     --wii-blue-hover: #0082c3;
@@ -10,10 +15,19 @@
     --wii-glow: 0 0 15px rgba(0, 160, 233, 0.6);
 }
 
+h1, h2 {
+    font-family: 'Commissioner', sans-serif;
+}
+
 body {
     font-family: 'Fredoka', sans-serif;
     background-color: var(--wii-bg);
     color: var(--wii-text);
+    
+}
+
+*, *::before, *::after, a, button, input, textarea, select, label {
+    cursor: url('../imagenes/wii-cursor.png') 0 0, auto !important;
 }
 
 
@@ -67,10 +81,10 @@ body {
     border: 3px solid #00a0e9;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1), inset 0 2px 5px rgba(255, 255, 255, 0.9);
     position: relative;
-    overflow: hidden; /* Corta la imagen en forma circular */
+    overflow: hidden;
     display: flex;
     justify-content: center;
-    align-items: flex-end; /* Alinea el Mii desde abajo */
+    align-items: flex-end; 
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -87,4 +101,57 @@ body {
 }
 .sec-busq{
     background-image: url(imagenes/eurogamer-wallpaper.webp);
+}
+
+.toast-wii {
+   
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    
+    background-color: #bffbc7;
+    border: 2px solid #00d346;
+    color: #1f8700;
+    font-weight: bold;
+    padding: 8px 18px;
+    border-radius: 50px;
+    font-size: 0.875rem;
+    text-align: center;
+    max-width: 260px;
+    margin: 0 auto;
+    box-shadow: 0 4px 10px rgba(0, 160, 233, 0.15);
+}
+
+
+.toast-wii.show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+    .wii-btn-group {
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+    }
+
+    .wii-btn-group a, 
+    .wii-btn-group button {
+        width: 80%;
+        justify-content: center;
+       
+    }
+
+        .card-close-btn { 
+        display: none !important;
+    }
+
+    .btn-fav {
+         width: 100%;
+         justify-content: center;
+    }
 }
