@@ -25,6 +25,9 @@ const showAmiibo = async (url) => {
     isLoading(true);
     cardsDeJs.innerHTML = '';
 
+    document.querySelector('#no-results').classList.add('hidden');
+    document.querySelector('#error-message').classList.add('hidden');
+
     const amiibos = await getAllAmiibo(url);
 
     if(!amiibos || amiibos.length === 0){
@@ -237,18 +240,6 @@ const searchAmiibo = () => {
         showAmiibo(API_URL);
     }
 };
-
-buscador.addEventListener("keypress", (e) => {
-    if (e.key === "Enter") {
-        searchAmiibo();
-    }
-});
-
-buscador.addEventListener("keypress", (e) => {
-    if (e.key === "Enter") {
-        searchAmiibo();
-    }
-});
 
 if (mobileMenuBtn && mobileMenu) {
     mobileMenuBtn.addEventListener('click', () => {
