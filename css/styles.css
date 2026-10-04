@@ -23,7 +23,6 @@ body {
     font-family: 'Fredoka', sans-serif;
     background-color: var(--wii-bg);
     color: var(--wii-text);
-    
 }
 
 *, *::before, *::after, a, button, input, textarea, select, label {

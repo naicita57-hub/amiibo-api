@@ -124,9 +124,12 @@ const detailAmiibo = (id) => {
                 
             </div>
             
+            <div id="fav-toast" class="toast-wii">
+                <span></span>
+            </div>
+
             <div id="detailModalBody" class="py-6">
 
-            
                 <div class="flex flex-col items-center text-center">
                     <img src="${amiibo.image}" alt="${amiibo.name}" class="h-48 object-contain mb-6">
                     <ul class="w-full text-left bg-gray-50 rounded-lg p-4 border-2 border-[#d0d7de]">
@@ -203,6 +206,12 @@ const detailAmiibo = (id) => {
     btnCloseTop.onclick = cerrarModal;
     btnCloseBottom.onclick = cerrarModal;
 
+    modal.onclick = (event) => {
+        if (event.target === modal) {
+            cerrarModal();
+        }
+    }
+
     modal.classList.remove('hidden');
 }
 
@@ -228,6 +237,12 @@ const searchAmiibo = () => {
         showAmiibo(API_URL);
     }
 };
+
+buscador.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") {
+        searchAmiibo();
+    }
+});
 
 buscador.addEventListener("keypress", (e) => {
     if (e.key === "Enter") {

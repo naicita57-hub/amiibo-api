@@ -11,9 +11,9 @@ const agregarFavorito = (amiibo) => {
     if (!existe) {
         favoritos.push(amiibo);
         localStorage.setItem('amiibosFavoritos', JSON.stringify(favoritos));
-        return `¡${amiibo.name} añadido a favoritos!`;
+        return `¡Listo! ¡${amiibo.name} ya está en tus favoritos!`;
     }else {
-        return "Este Amiibo ya está en tus favoritos.";
+        return "Este Amiibo ya se había agregado a tus favoritos";
     };
 };  
 
