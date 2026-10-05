@@ -1,1 +1,12 @@
-https://amiibo-api-two.vercel.app/
+• Escuela de Arte Multimedial Da Vinci
+• CARRERA: Diseño y Programación Web
+• MATERIA: Aplicaciones Web Progresivas
+• TRABAJO PRÁCTICO: Examen Parcial 1
+• PROFESOR: Carlos Ferrer
+• ALUMNOS: Tymkiw, Naiara
+Portillo, Andrea
+• CUATRIMESTRE: 3er
+• COMISIÓN: DWM3AP
+• TURNO: mañana
+• FECHA DE ENTREGA: 05/10/2026
+• URL DEL SITIO: https://amiibo-api-two.vercel.app/
