@@ -8,3 +8,12 @@ if('serviceWorker' in navigator) {
             })
     });
 }
+
+(()=>{
+    let advice;
+
+    window.addEventListener('beforeinstallprompt', (e)=>{
+        e.preventDefault()
+        console.log(e);
+    })
+})()
