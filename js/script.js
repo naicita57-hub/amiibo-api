@@ -11,8 +11,8 @@ if('serviceWorker' in navigator) {
 
 (()=>{
     let advice;
-
     let showAlert = document.querySelector('#install-app');
+    
     window.addEventListener('beforeinstallprompt', (e)=>{
         e.preventDefault()
         console.log(e);
@@ -46,3 +46,7 @@ if('serviceWorker' in navigator) {
         }
     }
 })()
+
+if(window.Notification && Notification.permission !='denied'){
+    setTimeout('Notification.requestPermission()', 10000)
+}
