@@ -3,21 +3,7 @@ let cacheDynamic = "cache2";
 
 self.addEventListener('install', (e) => {
     console.log('el SW se instalo ', e);
-    // e.waitUntil(
-    //     caches.open(cacheName)
-    //         .then( (cache) => {
-    //             cache.addAll(
-    //                 [
-    //                     'index.html',
-    //                     'css/main.css',
-    //                     'assets/img/hero-home.jpeg'
-    //                 ]
-    //             );
-
-    //         })
-    // );
 });
-
 
 self.addEventListener('activate', (e) => {
     console.log('El SW se ha activado ', e);
@@ -52,4 +38,43 @@ self.addEventListener('fetch', (e) => {
 
             })
     )
+});
+
+self.addEventListener('push', (e) => {
+    console.log(e);
+
+    let title = 'Demo de la push';
+
+    options = {
+        body: "Click para regresar a la app",
+        icon: 'imagenes/logo.svg',
+        vibrate: [100, 50, 100],
+        data: {id: 1},
+        actions: [
+            {
+                'action': 'Si',
+                'title': 'Me gusta la app',
+                'icon': 'imagenes/nai-mii.png'
+            },
+            {
+                'action': 'No',
+                'title': 'No me gusta la app',
+                'icon': 'imagenes/mii-triste.webp'
+            }
+        ]
+    }
+
+    e.waitUntil(self.registration.showNotification(title, options))
 })
+
+self.addEventListener('notificationClick', (e) => {
+    console.log(e);
+    if(e.action === 'Si'){
+        clients.openWindows('https://amiibo-api-two.vercel.app/');
+        console.log(clients);
+    }else if (e.actions === 'No'){
+        console.log('No le gustó, definitivamente')
+    }
+
+    e.notification.close();
+});
