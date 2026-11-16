@@ -1,5 +1,5 @@
-let cacheName = "cache";
-let cacheDynamic = "cache2";
+let cachecito = "cache";
+let cachecitoDinamico = "cachiDi";
 
 self.addEventListener('install', (e) => {
     console.log('el SW se instalo ', e);
@@ -25,17 +25,13 @@ self.addEventListener('fetch', (e) => {
                             }
 
                             let responseToCache = response.clone()
-                            caches.open(cacheDynamic)
+                            caches.open(cachecitoDinamico)
                                 .then( (cache) => {
                                     cache.put(requestToCache, responseToCache)
                                 })
                             return response;
                         }
                     )
-
-
-               // return fetch(e.request)
-
             })
     )
 });
