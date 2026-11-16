@@ -111,7 +111,7 @@ boton.addEventListener('click', () => {
 });
 
 const detailAmiibo = (id) => {
-    const amiibos = JSON.parse(localStorage.getItem("amiibos")) || JSON.parse(localStorage.getItem("amiibosCache"));
+    const amiibos = JSON.parse(localStorage.getItem("amiibos")) || JSON.parse(localStorage.getItem("amiibos"));
     const amiibo = amiibos.find(a => `${a.head}${a.tail}` === id);
     
     if (!amiibo) return;

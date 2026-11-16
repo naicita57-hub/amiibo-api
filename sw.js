@@ -74,3 +74,4 @@ self.addEventListener('notificationClick', (e) => {
 
     e.notification.close();
 });
+
