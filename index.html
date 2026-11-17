@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 
 <head>
@@ -12,13 +12,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@400;600;700;800&display=swap"
     rel="stylesheet" />
   <link rel="icon" type="image/png" href="imagenes/logo.svg" />
-  <link rel="icon" sizes="16x16" href="/favicon-16x16.png" />
-  <link rel="icon" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" sizes="16x16" href="imagenes/favicon-16x16.png" />
+  <link rel="icon" sizes="32x32" href="imagenes/favicon-32x32.png" />
   <link rel="icon" type="image/png" href="imagenes/favicon-96x96.png" sizes="96x96" />
   <link rel="icon" type="image/png" href="imagenes/favicon-144x144.png" sizes="96x96" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-  <link rel="icon" sizes="192x192" href="/android-chrome-192x192.png" />
-  <link rel="icon" sizes="512x512" href="/android-chrome-512x512.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="imagenes/apple-touch-icon.png" />
+  <link rel="icon" sizes="192x192" href="imagenes/android-chrome-192x192.png" />
+  <link rel="icon" sizes="512x512" href="imagenes/android-chrome-512x512.png" />
   <link rel="shortcut icon" href="imagenes/favicon.ico" />
   <link rel="manifest" href="manifest.json" />
 </head>
@@ -74,6 +74,10 @@
         class="block text-center bg-white border-2 border-[#d0d7de] text-[#484848] hover:border-[#00a0e9] hover:text-[#00a0e9] rounded-full py-2.5 font-semibold transition">
         ✰Favoritos✰
       </a>
+      <button id="install-app-mobile"
+        class="hidden wii-btn-blue font-bold rounded-full px-6 py-2.5 w-full sm:w-auto">
+        Instalar Aplicación
+      </button>
     </div>
   </header>
 
@@ -160,7 +164,7 @@
       No se encontraron amiibos que coincidan con lo que buscaste.
     </div>
 
-    <div id="status" class="toast-wii"></div>
+    <div id="status" class="toast-status"></div>
 
     <section id="cards-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"></section>
   </main>

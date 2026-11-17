@@ -11,6 +11,46 @@ const iconOpen = document.getElementById('icon-open');
 const iconClose = document.getElementById('icon-close');
 const formularioBusqueda = document.querySelector('#search-form');
 const modalTitle = document.querySelector('#detailModalLabel');
+let estadoTimer;
+
+const mostrarEstado = (mensaje, tipo = 'online', duracion = 0) => {
+    const status = document.querySelector('#status');
+    if (!status) return;
+
+    clearTimeout(window.estadoTimer);
+
+    status.textContent = mensaje;
+    status.classList.remove('online', 'offline');
+    status.classList.add(tipo, 'show');
+
+    if (duracion) {
+        window.estadoTimer = setTimeout(() => {
+            status.classList.remove('show');
+        }, duracion);
+    }
+};
+
+(() => {
+    let estabaDesconectado = false;
+
+    const conectividad = () => {
+        if (navigator.onLine) {
+            if (estabaDesconectado) {
+                mostrarEstado("Conexión restablecida", "online", 3000);
+                console.log("Conexión restablecida");
+                estabaDesconectado = false;
+            }
+        } else {
+            mostrarEstado("Sin conexión a internet", "offline");
+            console.log("No hay conexión");
+            estabaDesconectado = true;
+        }
+    };
+    window.addEventListener("online", conectividad);
+    window.addEventListener("offline", conectividad);
+
+    conectividad();
+})();
 
 const getAllAmiibo = async (url) => {
     const data = await fetchData(url);
@@ -30,8 +70,8 @@ const showAmiibo = async (url) => {
 
     const amiibos = await getAllAmiibo(url);
 
-    if(!amiibos || amiibos.length === 0){
-       const hayErrorDeRed = !document.querySelector('#error-message').classList.contains('hidden');
+    if (!amiibos || amiibos.length === 0) {
+        const hayErrorDeRed = !document.querySelector('#error-message').classList.contains('hidden');
         if (!hayErrorDeRed) {
             document.querySelector('#no-results').classList.remove('hidden');
         }
@@ -46,10 +86,10 @@ const showAmiibo = async (url) => {
 
         const cardElement = document.createElement('article');
         cardElement.className = 'wii-card gap-2 bg-white border-2 border-gray-200 rounded-2xl p-4 transition flex flex-col justify-between';
-        
+
         const imgContainer = document.createElement('div');
         imgContainer.className = 'w-full h-44 flex items-center justify-center rounded-xl p-2 mb-3';
-        
+
         const imgElement = document.createElement('img');
         imgElement.src = amiibo.image;
         imgElement.alt = amiibo.name;
@@ -75,7 +115,7 @@ const showAmiibo = async (url) => {
         const btnElement = document.createElement('button');
         btnElement.className = 'wii-btn-blue text-white font-semibold text-sm py-2 px-4 rounded-xl w-full transition shadow-sm';
         btnElement.textContent = 'Ver más';
-        
+
         btnElement.addEventListener('click', () => {
             detailAmiibo(amiiboId);
         });
@@ -104,16 +144,18 @@ const isLoading = (isActive) => {
     }
 };
 
-boton.addEventListener('click', () => {
-    document.querySelector('#error-message').classList.add('hidden');
-    
-    showAmiibo(API_URL);
-});
+if (boton) {
+    boton.addEventListener('click', () => {
+        document.querySelector('#error-message').classList.add('hidden');
+
+        showAmiibo(API_URL);
+    });
+}
 
 const detailAmiibo = (id) => {
     const amiibos = JSON.parse(localStorage.getItem("amiibos")) || JSON.parse(localStorage.getItem("amiibos"));
     const amiibo = amiibos.find(a => `${a.head}${a.tail}` === id);
-    
+
     if (!amiibo) return;
 
     const modal = document.querySelector('#detailModal');
@@ -220,8 +262,8 @@ const detailAmiibo = (id) => {
 
 const mostrarToast = (mensaje) => {
     const toast = document.querySelector('#fav-toast');
-    
-    if (!toast) return; 
+
+    if (!toast) return;
 
     const toastSpan = toast.querySelector('span');
     toastSpan.textContent = mensaje;
@@ -243,10 +285,9 @@ const searchAmiibo = () => {
 
 if (mobileMenuBtn && mobileMenu) {
     mobileMenuBtn.addEventListener('click', () => {
-      
+
         mobileMenu.classList.toggle('hidden');
-        
-        
+
         iconOpen.classList.toggle('hidden');
         iconClose.classList.toggle('hidden');
     });
